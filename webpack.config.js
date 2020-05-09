@@ -5,7 +5,7 @@ module.exports = {
     mode: 'none',
     entry: path.resolve(__dirname, './sources/index.ts'),
     resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
     },
     output: {
         path: path.resolve(__dirname, './build'),
@@ -30,9 +30,18 @@ module.exports = {
                 robots: 'all',
                 'Content-Security-Policy': {
                     'http-equiv': 'Content-Security-Policy',
-                    content: 'default-src \'self\''
+                    content: `default-src 'self'`
                 }
             }
         })
-    ]
+    ],
+    devtool: 'source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'build'),
+        port: 3000,
+        hot: true,
+        open: {
+            app: ['chrome', '--incognito']
+        }
+    }
 };
