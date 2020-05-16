@@ -1,9 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
     mode: 'none',
-    entry: path.resolve(__dirname, './sources/index.ts'),
+    entry: path.resolve(__dirname, './sources/index.tsx'),
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
     },
@@ -16,10 +17,26 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: process.env.WEBPACK_DEV_SERVER
+                        }
+                    },
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'styles.css'
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             title: 'Akhremenko Grigorii',
