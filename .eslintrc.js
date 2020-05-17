@@ -23,9 +23,13 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint'],
     rules: {
+        'no-debugger': "error",
+        'no-console': "error",
         indent: ['error', 4],
         'linebreak-style': ['error', 'windows'],
         quotes: ['error', 'single'],
-        semi: ['error', 'always']
+        semi: ['error', 'always'],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error"
     }
 };

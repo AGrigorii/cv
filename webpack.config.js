@@ -30,6 +30,10 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-react-loader',
             }
         ]
     },
@@ -55,10 +59,11 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         contentBase: path.join(__dirname, 'build'),
+        headers: {"Access-Control-Allow-Origin": "*"},
         port: 3000,
         hot: true,
         open: {
-            app: ['chrome', '--incognito']
+            app: ['chrome']
         }
     }
 };

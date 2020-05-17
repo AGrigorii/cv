@@ -1,0 +1,47 @@
+.navigation-menu {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: azure;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+  justify-items: baseline;
+
+  li {
+    display: inline-flex;
+    width: auto;
+    text-align: center;
+    vertical-align: baseline;
+    height: 50px;
+    line-height: 50px;
+
+    &:hover {
+      color: rgba(azure, 0.8);
+      text-decoration: underline;
+    }
+
+    &.home-link {
+      padding-left: 25px;
+      width: 50%;
+    }
+  }
+
+  .lang-icon {
+    min-width: 96px;
+    display: inline;
+  }
+}
+
+.lang-icon svg {
+  display: inline;
+  width: 32px;
+  height: 16px;
+}
+
+.lang-icon svg:hover {
+  display: inline;
+  width: 34px;
+  height: 17px;
+}
