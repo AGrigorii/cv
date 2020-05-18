@@ -6,6 +6,8 @@ type TextEntity = {
     careerLink: string;
     skillsLink: string;
     cvLink: string;
+    currentLocation: string;
+    currentWorkStatus: string;
 };
 
 type Vocabulary = {
@@ -19,14 +21,18 @@ const vocabulary: Vocabulary = {
         contactLink: 'Contacts',
         careerLink: 'Career',
         skillsLink: 'Skills',
-        cvLink: 'Cv'
+        cvLink: 'Cv',
+        currentLocation: 'Russia, Moscow',
+        currentWorkStatus: 'work at Confirmit inc.'
     },
     ru: {
         myName: 'Ахременко Григорий',
         contactLink: 'Контакты',
         careerLink: 'Карьера',
         skillsLink: 'Умения',
-        cvLink: 'Резюме'
+        cvLink: 'Резюме',
+        currentLocation: 'Россия, Москва',
+        currentWorkStatus: 'работаю в Confirmit'
     }
 };
 

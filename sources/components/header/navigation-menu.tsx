@@ -1,6 +1,6 @@
 import React from 'react';
 import { AccessibleLanguages, actions, Lang } from '../../storage/reducer';
-import { LangIcon } from './change-language-icon';
+import { LangIcon } from './language-switcher';
 import { getText } from '../../storage/text-provider';
 
 export class NavigationMenu extends React.Component<any> {

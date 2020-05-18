@@ -1,4 +1,6 @@
+@import "sources/components/styles-common/colors-pallete";
+
 .content-container {
   height: 100%;
-  background-color: greenyellow;
+  background-color: $content-background-color;
 }

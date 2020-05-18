@@ -1,5 +1,44 @@
+@import "sources/components/styles-common/colors-pallete";
+
+$footer-height: 40px;
+$footer-margins: 7px;
+
 .footer-container {
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: azure;
+  padding: 0;
+  margin: 0;
+  height: $footer-height;
+  line-height: $footer-height;
+  background-color: $header-footer-background-color;
+  color: $header-footer-text-color;
+  display: flex;
+  flex-direction: row;
+  justify-items: left;
+
+  svg {
+    margin: $footer-margins;
+    height: $footer-height - 2*$footer-margins;
+    fill: $header-footer-text-color;
+  }
+
+  li {
+    display: inline-flex;
+
+    &:hover {
+      color: $header-footer-text-hovered-color;
+
+      svg {
+        fill: $header-footer-text-hovered-color;
+      }
+    }
+  }
+
+  & .current-location {
+    width: max-content;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    flex-direction: row;
+    height: $footer-height;
+    line-height: $footer-height;
+  }
 }

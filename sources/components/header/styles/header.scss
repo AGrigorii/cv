@@ -1,17 +1,25 @@
+@import "sources/components/styles-common/colors-pallete";
+
+$header-height: 40px;
+
 .navigation-menu {
   margin: 0;
   padding: 0;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: azure;
+  height: $header-height;
+  background-color: $header-footer-background-color;
+  color: $header-footer-text-color;
   display: inline-flex;
   justify-content: space-between;
   flex-direction: row;
   justify-items: baseline;
 
+  > .navigation-menu-item {
+    border-radius: 15px;
+  }
+
   > .navigation-menu-item:hover {
-    background-color: rgba(0, 0, 0, 0.85);
-    color: blanchedalmond;
+    background-color: $header-footer-item-background-hovered-color;
+    color: $header-footer-text-hovered-color;
     text-decoration: underline;
   }
 
@@ -22,8 +30,8 @@
     text-align: center;
     justify-content: space-around;
     vertical-align: baseline;
-    height: 50px;
-    line-height: 50px;
+    height: $header-height;
+    line-height: $header-height;
 
     &.empty-space {
       width: 100%;
@@ -31,6 +39,9 @@
 
     &:first-child {
       width: 400px;
+      padding-left: 10px;
+      padding-right: 10px;
+      min-width: max-content;
     }
 
     &:last-child {
