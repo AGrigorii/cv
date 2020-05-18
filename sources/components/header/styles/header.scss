@@ -9,28 +9,35 @@
   flex-direction: row;
   justify-items: baseline;
 
+  > .navigation-menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: blanchedalmond;
+    text-decoration: underline;
+  }
+
   li {
     display: inline-flex;
-    width: auto;
+    min-width: 100px;
+    width: 150px;
     text-align: center;
+    justify-content: space-around;
     vertical-align: baseline;
     height: 50px;
     line-height: 50px;
 
-    &:hover {
-      color: rgba(azure, 0.8);
-      text-decoration: underline;
+    &.empty-space {
+      width: 100%;
     }
 
-    &.home-link {
-      padding-left: 25px;
-      width: 50%;
+    &:first-child {
+      width: 400px;
     }
-  }
 
-  .lang-icon {
-    min-width: 96px;
-    display: inline;
+    &:last-child {
+      width: 96px;
+      min-width: 64px;
+      display: inline;
+    }
   }
 }
 
@@ -38,10 +45,18 @@
   display: inline;
   width: 32px;
   height: 16px;
+
+  &:hover {
+    width: 34px;
+    height: 17px;
+  }
 }
 
-.lang-icon svg:hover {
+.hover-switcher .hover-switcher--on,
+.hover-switcher:hover .hover-switcher--off {
+  display: none;
+}
+
+.hover-switcher:hover .hover-switcher--on {
   display: inline;
-  width: 34px;
-  height: 17px;
 }

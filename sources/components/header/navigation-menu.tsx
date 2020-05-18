@@ -1,6 +1,7 @@
 import React from 'react';
 import { AccessibleLanguages, actions, Lang } from '../../storage/reducer';
 import { LangIcon } from './change-language-icon';
+import { getText } from '../../storage/text-provider';
 
 export class NavigationMenu extends React.Component<any> {
     constructor(props: any) {
@@ -18,14 +19,15 @@ export class NavigationMenu extends React.Component<any> {
     render() {
         return (
             <ul className="navigation-menu">
-                <li className="navigation-menu-item home-link">Akhremenko Grigorii</li>
-                <li className="navigation-menu-item">Career</li>
-                <li className="navigation-menu-item">Cv</li>
-                <li className="navigation-menu-item">Skills</li>
-                <li className="navigation-menu-item">Contacts</li>
+                <li className="navigation-menu-item">{getText(this.props.lang, 'myName')}</li>
+                <li className="empty-space" />
                 <li className="navigation-menu-item">
-                    {LangIcon(this.props.lang, this.changeLanguage(this.props.lang))}
+                    <span>{getText(this.props.lang, 'careerLink')}</span>
                 </li>
+                <li className="navigation-menu-item">{getText(this.props.lang, 'cvLink')}</li>
+                <li className="navigation-menu-item">{getText(this.props.lang, 'skillsLink')}</li>
+                <li className="navigation-menu-item">{getText(this.props.lang, 'contactLink')}</li>
+                <li>{LangIcon(this.props.lang, this.changeLanguage(this.props.lang))}</li>
             </ul>
         );
     }
