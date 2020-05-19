@@ -1,13 +1,17 @@
 import { AccessibleLanguages } from './reducer';
 
-type TextEntity = {
+export type TextEntity = {
     myName: string;
     contactLink: string;
     careerLink: string;
     skillsLink: string;
     cvLink: string;
+    //slideshow panel
     currentLocation: string;
     currentWorkStatus: string;
+    whoIAm: string;
+    specialization: string;
+    qualificationLevel: string;
 };
 
 type Vocabulary = {
@@ -22,8 +26,12 @@ const vocabulary: Vocabulary = {
         careerLink: 'Career',
         skillsLink: 'Skills',
         cvLink: 'Cv',
-        currentLocation: 'Russia, Moscow',
-        currentWorkStatus: 'work at Confirmit inc.'
+        //slideshow panel
+        currentLocation: 'Current location: Russia, Moscow',
+        currentWorkStatus: 'Current status: working at Confirmit inc.',
+        whoIAm: 'Position: Software engineer',
+        specialization: 'Specialization: Node.js & React/Redux Full-stack developer',
+        qualificationLevel: 'Qualification level: Middle'
     },
     ru: {
         myName: 'Ахременко Григорий',
@@ -31,8 +39,12 @@ const vocabulary: Vocabulary = {
         careerLink: 'Карьера',
         skillsLink: 'Умения',
         cvLink: 'Резюме',
-        currentLocation: 'Россия, Москва',
-        currentWorkStatus: 'работаю в Confirmit'
+        //slideshow panel
+        currentLocation: 'Текущая локация: Россия, Москва',
+        currentWorkStatus: 'Текущий статус: работаю в Confirmit',
+        whoIAm: 'Должность: Software engineer',
+        specialization: 'Специализация: Node.js & React/Redux Фуллстек разработчик',
+        qualificationLevel: 'Уровень квалификации: Middle'
     }
 };
 
