@@ -49,6 +49,10 @@ $header-height: 40px;
       min-width: 64px;
       display: inline;
     }
+
+    &:not(.empty-space):hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -58,8 +62,8 @@ $header-height: 40px;
   height: 16px;
 
   &:hover {
-    width: 34px;
-    height: 17px;
+    transform: scale(1.2);
+    transition-duration: 1ms;
   }
 }
 

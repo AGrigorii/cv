@@ -1,25 +1,31 @@
-export enum Lang {
+export enum Languages {
     en = 'en',
     ru = 'ru'
 }
-export type AccessibleLanguages = keyof typeof Lang;
+export type Language = keyof typeof Languages;
 
 export type State = {
-    lang: AccessibleLanguages;
+    language: Language;
 };
 
 const initialState: State = {
-    lang: Lang.en
+    language: Languages.en
 };
 
-export const actions = {
-    SET_LANGUAGE: 'SET_LANGUAGE'
+export const actionTypes = {
+    SET_LANGUAGE: 'SET_LANGUAGE' as 'SET_LANGUAGE'
 };
 
-export default function (state = initialState, action: { type: keyof typeof actions; lang: AccessibleLanguages }) {
+interface IAction {
+    type: keyof typeof actionTypes;
+}
+
+export type Action = IAction & { language: Language };
+
+export default function (state = initialState, action: Action): State {
     switch (action.type) {
-        case actions.SET_LANGUAGE:
-            return { ...state, lang: action.lang };
+        case actionTypes.SET_LANGUAGE:
+            return { ...state, language: action.language };
         default:
             return initialState;
     }

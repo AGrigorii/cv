@@ -1,4 +1,4 @@
-import { AccessibleLanguages } from './reducer';
+import { Language } from './reducer';
 
 export type TextEntity = {
     myName: string;
@@ -48,6 +48,6 @@ const vocabulary: Vocabulary = {
     }
 };
 
-export function getText(lang: AccessibleLanguages, textIdentifier: keyof TextEntity): string {
+export function getText(lang: Language, textIdentifier: keyof TextEntity): string {
     return vocabulary[lang][textIdentifier];
 }

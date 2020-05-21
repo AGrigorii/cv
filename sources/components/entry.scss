@@ -1,29 +1,4 @@
+@import "sources/components/styles-common/general";
 @import "sources/components/header/styles/header";
 @import "sources/components/content/styles/content";
 @import "sources/components/footer/styles/footer";
-
-html,
-body,
-div {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 500px;
-  min-width: 750px;
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  > [class*="-container"] {
-    display: block;
-  }
-}

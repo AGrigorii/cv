@@ -1,9 +1,12 @@
 import React from 'react';
-import { State } from '../../storage/reducer';
+
+import { AppProps } from '../app';
 import { NavigationMenu } from './navigation-menu';
 
-export class HeaderContainer extends React.Component<State> {
-    constructor(props: State) {
+export type HeaderContainerProps = AppProps;
+
+export class HeaderContainer extends React.Component<HeaderContainerProps> {
+    constructor(props: HeaderContainerProps) {
         super(props);
     }
 

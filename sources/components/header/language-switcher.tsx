@@ -1,21 +1,22 @@
-import { AccessibleLanguages, Lang } from '../../storage/reducer';
 import React from 'react';
+
 import EnglandIcon from '../../media/england-flag.svg';
 import RussiaIcon from '../../media/russian-flag.svg';
+import { Language, Languages } from '../../storage/reducer';
 
-export function LangIcon(lang: AccessibleLanguages, onChange: any) {
+export function LangIcon(lang: Language, onChange: any) {
     const switcherOffClassName = 'hover-switcher--off';
     const switcherOnClassName = 'hover-switcher--on';
 
     const toShowWithoutHover =
-        lang === Lang.ru ? (
+        lang === Languages.ru ? (
             <RussiaIcon className={switcherOffClassName} />
         ) : (
             <EnglandIcon className={switcherOffClassName} />
         );
 
     const toShowOnHover =
-        lang !== Lang.ru ? (
+        lang !== Languages.ru ? (
             <RussiaIcon className={switcherOnClassName} onClick={onChange} />
         ) : (
             <EnglandIcon className={switcherOnClassName} onClick={onChange} />

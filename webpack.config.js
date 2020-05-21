@@ -33,7 +33,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                loader: 'svg-react-loader',
+                loader: 'svg-react-loader'
             }
         ]
     },
@@ -51,7 +51,7 @@ module.exports = {
                 robots: 'all',
                 'Content-Security-Policy': {
                     'http-equiv': 'Content-Security-Policy',
-                    content: `default-src 'self'`
+                    content: "default-src 'self'"
                 }
             }
         })
@@ -59,7 +59,7 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         contentBase: path.join(__dirname, 'build'),
-        headers: {"Access-Control-Allow-Origin": "*"},
+        headers: { 'Access-Control-Allow-Origin': '*' },
         port: 3000,
         hot: true,
         open: {

@@ -1,12 +1,17 @@
-import React from 'react';
 import './entry.scss';
-import { HeaderContainer } from './header/header-container';
+
+import React from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+
+import { Action, State } from '../storage/reducer';
 import { ContentContainer } from './content/content-container';
 import { FooterContainer } from './footer/footer-container';
-import { connect } from 'react-redux';
-import { State } from '../storage/reducer';
+import { HeaderContainer } from './header/header-container';
 
-class App extends React.Component<State> {
+export type AppProps = State & { dispatch: Dispatch<Action> };
+
+class App extends React.Component<AppProps> {
     render() {
         return (
             <div className="app">
@@ -19,8 +24,8 @@ class App extends React.Component<State> {
 }
 
 function mapStateToProps(state: State) {
-    const { lang } = state;
-    return { lang };
+    const { language } = state;
+    return { language };
 }
 
 export default connect(mapStateToProps, null)(App);

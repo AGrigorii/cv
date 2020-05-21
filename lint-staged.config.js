@@ -1,4 +1,4 @@
 module.exports = {
-  '*.ts?(x)': ['eslint --fix', 'prettier --write'],
-  '*.scss': ['stylelint --fix']
+    '*.ts?(x)': ['eslint --fix', 'prettier --write', 'import-sort --write'],
+    '*.scss': ['stylelint --fix']
 };
