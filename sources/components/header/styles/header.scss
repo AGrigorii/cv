@@ -44,34 +44,8 @@ $header-height: 40px;
       min-width: max-content;
     }
 
-    &:last-child {
-      width: 96px;
-      min-width: 64px;
-      display: inline;
-    }
-
     &:not(.empty-space):hover {
       cursor: pointer;
     }
   }
-}
-
-.lang-icon svg {
-  display: inline;
-  width: 32px;
-  height: 16px;
-
-  &:hover {
-    transform: scale(1.2);
-    transition-duration: 1ms;
-  }
-}
-
-.hover-switcher .hover-switcher--on,
-.hover-switcher:hover .hover-switcher--off {
-  display: none;
-}
-
-.hover-switcher:hover .hover-switcher--on {
-  display: inline;
 }

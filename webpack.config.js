@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
@@ -30,7 +29,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.css'
         }),
@@ -44,7 +42,7 @@ module.exports = {
                 robots: 'all',
                 'Content-Security-Policy': {
                     'http-equiv': 'Content-Security-Policy',
-                    content: "default-src 'self'"
+                    content: 'default-src \'self\''
                 }
             }
         })

@@ -1,9 +1,11 @@
 import React from 'react';
 
+import EnglandIcon from '../../media/england-flag.svg';
+import RussianIcon from '../../media/russian-flag.svg';
 import { Language, Languages, Page, Pages, actionTypes } from '../../storage/reducer';
 import { getText } from '../../storage/text-provider';
+import LanguageSwitcher from '../my-components/dropdown/language-switcher';
 import { HeaderContainerProps } from './header-container';
-import { LangIcon } from './language-switcher';
 
 type NavigationMenuProps = HeaderContainerProps;
 
@@ -14,14 +16,13 @@ export class NavigationMenu extends React.Component<NavigationMenuProps> {
         this.changePage = this.changePage.bind(this);
     }
 
-    changeLanguage(currentLanguage: Language) {
+    changeLanguage(code: Language) {
         const { dispatch } = this.props;
-        return () => {
-            dispatch({
-                type: actionTypes.SET_LANGUAGE,
-                language: currentLanguage === Languages.en ? Languages.ru : Languages.en
-            });
-        };
+
+        dispatch({
+            type: actionTypes.SET_LANGUAGE,
+            language: code
+        });
     }
 
     changePage(navigateTo: Page) {
@@ -54,7 +55,15 @@ export class NavigationMenu extends React.Component<NavigationMenuProps> {
                 <li className="navigation-menu-item" onClick={this.changePage(Pages.contacts)}>
                     {getText(language, 'contactLink')}
                 </li>
-                <li>{LangIcon(language, this.changeLanguage(language))}</li>
+                <li>
+                    <LanguageSwitcher
+                        items={[
+                            { code: Languages.en, icon: <EnglandIcon /> },
+                            { code: Languages.ru, icon: <RussianIcon /> }
+                        ]}
+                        changeLanguage={this.changeLanguage}
+                    />
+                </li>
             </ul>
         );
     }
