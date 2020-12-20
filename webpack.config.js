@@ -1,9 +1,10 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
-    mode: 'none',
+    mode: 'development',
     entry: path.resolve(__dirname, './sources/index.tsx'),
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
@@ -20,16 +21,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: process.env.WEBPACK_DEV_SERVER
-                        }
-                    },
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             },
             {
                 test: /\.svg$/,
@@ -38,6 +30,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.css'
         }),

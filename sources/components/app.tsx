@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { Action, State } from '../storage/reducer';
-import { ContentContainer } from './content/content-container';
+import ContentContainer from './content/content-container';
 import { FooterContainer } from './footer/footer-container';
 import { HeaderContainer } from './header/header-container';
 
@@ -24,8 +24,8 @@ class App extends React.Component<AppProps> {
 }
 
 function mapStateToProps(state: State) {
-    const { language } = state;
-    return { language };
+    const { language, currentPage } = state;
+    return { language, currentPage };
 }
 
 export default connect(mapStateToProps, null)(App);
