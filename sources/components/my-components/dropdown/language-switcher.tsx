@@ -1,6 +1,7 @@
 import './language-switcher.scss';
 
 import React from 'react';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 import RightArrow from '../../../media/right-arrow.svg';
 import { Language } from '../../../storage/reducer';
@@ -32,47 +33,49 @@ export default class LanguageSwitcher extends React.Component<DropdownProps, Dro
             open: false,
             selectedIndex: 0
         };
-
-        this.getSelectedIcon = this.getSelectedIcon.bind(this);
-        this.openCloseMenu = this.openCloseMenu.bind(this);
-        this.selectItem = this.selectItem.bind(this);
     }
 
-    getSelectedIcon() {
+    getSelectedIcon = () => {
         const { items } = this.props;
         const { selectedIndex } = this.state;
 
         return items[selectedIndex].icon;
-    }
+    };
 
-    openCloseMenu() {
+    closeMenu = () => {
+        this.setState({ open: false });
+    };
+
+    openCloseMenu = () => {
         const { open } = this.state;
         this.setState({ open: !open });
-    }
+    };
 
-    selectItem(index: number) {
+    selectItem = (index: number) => {
         const { items } = this.props;
         return () => {
             this.props.changeLanguage(items[index].code);
             this.setState({ selectedIndex: index, open: false });
         };
-    }
+    };
 
     render() {
         return (
-            <div className="switcher">
-                <div className={'switcher__selected'} onClick={this.openCloseMenu}>
-                    <RightArrow className={`switcher__selected-arrow ${this.state.open ? 'down' : 'right'}`} />
-                    <div className="switcher__selected-icon">{this.getSelectedIcon()}</div>
-                </div>
-                {this.state.open && (
-                    <div className="switcher__switcher-menu">
-                        {this.props.items.map((x, index) => (
-                            <MenuItem {...x} onSelect={this.selectItem(index)} key={x.code} />
-                        ))}
+            <OutsideClickHandler onOutsideClick={this.closeMenu}>
+                <div className="switcher">
+                    <div className={'switcher__selected'} onClick={this.openCloseMenu}>
+                        <RightArrow className={`switcher__selected-arrow ${this.state.open ? 'down' : 'right'}`} />
+                        <div className="switcher__selected-icon">{this.getSelectedIcon()}</div>
                     </div>
-                )}
-            </div>
+                    {this.state.open && (
+                        <div className="switcher__switcher-menu">
+                            {this.props.items.map((x, index) => (
+                                <MenuItem {...x} onSelect={this.selectItem(index)} key={x.code} />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </OutsideClickHandler>
         );
     }
 }
