@@ -1,0 +1,33 @@
+@import "sources/components/styles-common/colors-pallete";
+
+.selected-item {
+  border-radius: 5px;
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+
+  &:hover {
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.7);
+  }
+
+  &__icon {
+    width: 40px;
+  }
+
+  &__arrow {
+    width: 30px;
+    fill: $header-footer-text-color;
+    align-self: center;
+
+    &--down {
+      transform: rotate(90deg);
+      transition-duration: 200ms;
+    }
+
+    &--right {
+      transform: rotate(0deg);
+      transition-duration: 200ms;
+    }
+  }
+}

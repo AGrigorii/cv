@@ -11,7 +11,7 @@ export enum Pages {
     contacts = 'contacts'
 }
 
-export type Language = keyof typeof Languages;
+export type Language = Languages;
 export type Page = keyof typeof Pages;
 
 export type State = {

@@ -1,0 +1,19 @@
+@import "sources/components/styles-common/colors-pallete";
+
+.switcher {
+  line-height: initial;
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+
+  > .selected-item {
+    padding: 10px;
+  }
+
+  > .dropdown-menu {
+    top: 40px;
+    position: absolute;
+  }
+}

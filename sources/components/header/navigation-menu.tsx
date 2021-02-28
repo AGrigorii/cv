@@ -4,28 +4,22 @@ import EnglandIcon from '../../media/england-flag.svg';
 import RussianIcon from '../../media/russian-flag.svg';
 import { Language, Languages, Page, Pages, actionTypes } from '../../storage/reducer';
 import { getText } from '../../storage/text-provider';
-import LanguageSwitcher from '../my-components/dropdown/language-switcher';
+import Dropdown from '../my-components/dropdown/dropdown';
 import { HeaderContainerProps } from './header-container';
 
 type NavigationMenuProps = HeaderContainerProps;
 
 export class NavigationMenu extends React.Component<NavigationMenuProps> {
-    constructor(props: NavigationMenuProps) {
-        super(props);
-        this.changeLanguage = this.changeLanguage.bind(this);
-        this.changePage = this.changePage.bind(this);
-    }
-
-    changeLanguage(code: Language) {
+    changeLanguage = (code: string) => {
         const { dispatch } = this.props;
 
         dispatch({
             type: actionTypes.SET_LANGUAGE,
-            language: code
+            language: code as Language
         });
-    }
+    };
 
-    changePage(navigateTo: Page) {
+    changePage = (navigateTo: Page) => {
         const { dispatch } = this.props;
         return () => {
             dispatch({
@@ -33,7 +27,7 @@ export class NavigationMenu extends React.Component<NavigationMenuProps> {
                 page: navigateTo
             });
         };
-    }
+    };
 
     render() {
         const { language } = this.props;
@@ -56,12 +50,13 @@ export class NavigationMenu extends React.Component<NavigationMenuProps> {
                     {getText(language, 'contactLink')}
                 </li>
                 <li>
-                    <LanguageSwitcher
+                    <Dropdown
                         items={[
                             { code: Languages.en, icon: <EnglandIcon /> },
                             { code: Languages.ru, icon: <RussianIcon /> }
                         ]}
-                        changeLanguage={this.changeLanguage}
+                        handleItemChange={this.changeLanguage}
+                        initiallySelectedItemIndex={0}
                     />
                 </li>
             </ul>
