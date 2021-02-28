@@ -20,7 +20,7 @@ export type State = {
 };
 
 const initialState: State = {
-    language: Languages.en,
+    language: (localStorage.getItem('lastSelectedLanguageCode') as Language) || Languages.en,
     currentPage: Pages.main
 };
 
