@@ -4,12 +4,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { Action, State } from '../storage/reducer';
+import { State } from '../storage/reducer';
 import ContentContainer from './content/content-container';
 import { FooterContainer } from './footer/footer-container';
 import { HeaderContainer } from './header/header-container';
 
-export type AppProps = State & { dispatch: Dispatch<Action> };
+export type AppProps = State & { dispatch: Dispatch };
 
 class App extends React.Component<AppProps> {
     render() {

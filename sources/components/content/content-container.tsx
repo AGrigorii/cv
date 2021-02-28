@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Pages, State } from '../../storage/reducer';
+import { State } from '../../storage/reducer';
+import { Pages } from '../../types';
 import AboutMe from './pages/about-me';
 import ContactMe from './pages/contact-me';
 import Cv from './pages/cv';

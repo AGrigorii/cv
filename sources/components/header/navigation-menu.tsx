@@ -2,8 +2,9 @@ import React, { useCallback, useMemo } from 'react';
 
 import EnglandIcon from '../../media/england-flag.svg';
 import RussianIcon from '../../media/russian-flag.svg';
-import { Language, Languages, Page, Pages, actionTypes } from '../../storage/reducer';
+import { changeLanguageAction, changePageAction } from '../../storage/actions/action-creator';
 import { getText } from '../../storage/text-provider';
+import { Language, Languages, Page, Pages } from '../../types';
 import Dropdown from '../my-components/dropdown/dropdown';
 import { HeaderContainerProps } from './header-container';
 
@@ -13,10 +14,7 @@ export function NavigationMenu(props: NavigationMenuProps) {
     const { dispatch, language } = props;
     const changeLanguage = useCallback(
         (code: string) => {
-            dispatch({
-                type: actionTypes.SET_LANGUAGE,
-                language: code as Language
-            });
+            dispatch(changeLanguageAction(code as Language));
             localStorage.setItem('lastSelectedLanguageCode', code);
         },
         [dispatch]
@@ -25,10 +23,7 @@ export function NavigationMenu(props: NavigationMenuProps) {
     const changePage = useCallback(
         (navigateTo: Page) => {
             return () => {
-                dispatch({
-                    type: actionTypes.NAVIGATE_TO_PAGE,
-                    page: navigateTo
-                });
+                dispatch(changePageAction(navigateTo));
             };
         },
         [dispatch]

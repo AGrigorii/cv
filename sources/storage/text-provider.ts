@@ -1,4 +1,4 @@
-import { Language } from './reducer';
+import { Language } from '../types';
 
 export type TextEntity = {
     myName: string;
