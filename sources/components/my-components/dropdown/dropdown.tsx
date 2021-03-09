@@ -18,7 +18,7 @@ type DropdownProps = {
     initiallySelectedItemIndex?: number;
 };
 
-const bemSwitcher = bemFactory('switcher');
+const dropdownBem = bemFactory('dropdown');
 
 export default class Dropdown extends React.Component<DropdownProps, DropdownState> {
     constructor(props: DropdownProps) {
@@ -60,7 +60,7 @@ export default class Dropdown extends React.Component<DropdownProps, DropdownSta
 
         return (
             <OutsideClickHandler onOutsideClick={this.closeMenu}>
-                <div className={bemSwitcher.block()}>
+                <div className={dropdownBem.block()}>
                     <SelectedItem
                         selectedIcon={this.getSelectedIcon()}
                         onMenuToggle={this.openCloseMenu}

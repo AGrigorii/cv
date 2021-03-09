@@ -1,0 +1,24 @@
+@import "../../styles-common/colors-pallete";
+
+.icon-link {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+
+  &__image {
+    display: flex;
+    margin: 7px;
+
+    & > svg {
+      fill: $header-footer-text-color;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      > svg {
+        fill: $header-footer-text-hovered-color;
+      }
+    }
+  }
+}

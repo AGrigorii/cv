@@ -1,0 +1,41 @@
+@import "../styles-common/colors-pallete";
+
+$header-height: 40px;
+
+.header {
+  height: $header-height;
+  background-color: $header-footer-background-color;
+  color: $header-footer-text-color;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+
+  &__postfix {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.menu {
+  height: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-content: center;
+  margin: auto;
+
+  &__item {
+    height: 100%;
+    padding: 0 10px;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    white-space: pre;
+
+    &:hover {
+      cursor: pointer;
+      color: $header-footer-text-hovered-color;
+      text-decoration: underline;
+      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.7);
+    }
+  }
+}

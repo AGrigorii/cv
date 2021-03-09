@@ -1,0 +1,28 @@
+@import "../styles-common/colors-pallete";
+
+$footer-height: 40px;
+
+.footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  text-align: center;
+  height: $footer-height;
+  line-height: $footer-height;
+  background-color: $header-footer-background-color;
+  color: $header-footer-text-color;
+
+  &__links {
+    display: inline-flex;
+    justify-content: space-around;
+    flex-direction: row;
+    justify-items: baseline;
+  }
+
+  &__copyright-block {
+    display: inline-flex;
+    margin-right: 10px;
+    flex-direction: row-reverse;
+    font-family: "Courier New", serif;
+    min-width: max-content;
+  }
+}

@@ -2,6 +2,7 @@ import { Language } from '../types';
 
 export type TextEntity = {
     myName: string;
+    mainLink: string;
     contactLink: string;
     careerLink: string;
     skillsLink: string;
@@ -22,10 +23,11 @@ type Vocabulary = {
 const vocabulary: Vocabulary = {
     en: {
         myName: 'Akhremenko Grigorii',
-        contactLink: 'Contacts',
+        mainLink: 'Main',
+        contactLink: 'Contact me',
         careerLink: 'Career',
         skillsLink: 'Skills',
-        cvLink: 'Cv',
+        cvLink: 'Download cv',
         //slideshow panel
         currentLocation: 'Current location: Russia, Moscow',
         currentWorkStatus: 'Current status: working at Confirmit inc.',
@@ -35,10 +37,11 @@ const vocabulary: Vocabulary = {
     },
     ru: {
         myName: 'Ахременко Григорий',
-        contactLink: 'Контакты',
+        mainLink: 'Главная',
+        contactLink: 'Связаться со мной',
         careerLink: 'Карьера',
         skillsLink: 'Умения',
-        cvLink: 'Резюме',
+        cvLink: 'Скачать резюме',
         //slideshow panel
         currentLocation: 'Текущая локация: Россия, Москва',
         currentWorkStatus: 'Текущий статус: работаю в Confirmit',

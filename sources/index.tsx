@@ -9,7 +9,7 @@ import reducer from '../sources/storage/reducer';
 import App from './components/app';
 
 const reactApp = document.createElement('div');
-reactApp.classList.add('react-app-entry-point');
+reactApp.classList.add('react-app');
 document.body.appendChild(reactApp);
 
 const store = createStore(reducer /*, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/);
