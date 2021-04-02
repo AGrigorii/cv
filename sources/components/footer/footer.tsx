@@ -43,7 +43,7 @@ function Footer() {
             </div>
 
             <span className={footerBem.element('copyright-block')}>
-                &copy; Akhremenko Grigorii, {`${new Date().getFullYear()}`}
+                &copy; Akhremenko Grigorii, 2020-{`${new Date().getFullYear()}`}
             </span>
         </div>
     );
